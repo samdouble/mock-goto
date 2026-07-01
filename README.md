@@ -1,11 +1,19 @@
 # mock-goto
 
+A module to mock a Playwright or Puppeteer page's goto method.
+
 [![CI](https://github.com/samdouble/mock-goto/actions/workflows/checks.yml/badge.svg)](https://github.com/samdouble/mock-goto/actions/workflows/checks.yml)
+[![Coverage Status](https://coveralls.io/repos/github/samdouble/mock-goto/badge.svg?branch=master)](https://coveralls.io/github/samdouble/mock-goto?branch=master)
 [![npm version](https://img.shields.io/npm/v/mock-goto.svg?style=flat)](https://www.npmjs.org/package/mock-goto)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/mock-goto)
-[![Coverage Status](https://coveralls.io/repos/samdouble/mock-goto/badge.svg?branch=master&service=github)](https://coveralls.io/github/samdouble/mock-goto?branch=master)
 
-A module to mock a Playwright or Puppeteer page's goto method.
+[![Node.js](https://img.shields.io/badge/Node.js-6DA55F?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff)](https://www.typescriptlang.org/)
+[![Playwright](https://custom-icon-badges.demolab.com/badge/Playwright-2EAD33?logo=playwright&logoColor=fff)](https://playwright.dev/)
+[![Puppeteer](https://custom-icon-badges.demolab.com/badge/Puppeteer-40B5A4?logo=puppeteer&logoColor=fff)](https://pptr.dev/)
+[![Jest](https://img.shields.io/badge/Jest-C21325?logo=jest&logoColor=fff)](https://jestjs.io/)
+[![Mocha](https://img.shields.io/badge/Mocha-8D6748?logo=mocha&logoColor=fff)](https://mochajs.org/)
+[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=fff)](https://www.npmjs.com/)
 
 ### Use Case
 
@@ -20,8 +28,9 @@ npm install --save-dev mock-goto
 
 ### Usage
 
-In your test, before calling the script that you want to test, call ***mock-goto**.
-The function takes 2 arguments:
+In your tests, call **mock-goto** before calling the script that you want to test.
+It is a function that takes 2 arguments:
+
 - The Playwright/Puppeteer Page object the script is using
 - A config object with the following properties:
 
