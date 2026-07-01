@@ -1,5 +1,12 @@
 #  Changelog
 
+## [1.0.2](https://github.com/samdouble/mock-goto/compare/v1.0.1...v1.0.2) (2026-07-01)
+
+
+### Bug Fixes
+
+* upgrade node types ([b876c9f](https://github.com/samdouble/mock-goto/commit/b876c9fdfb11c00a69949288c70295aadcf35181))
+
 ## [1.0.1](https://github.com/samdouble/mock-goto/compare/v1.0.0...v1.0.1) (2026-07-01)
 
 
