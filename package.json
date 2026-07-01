@@ -31,9 +31,9 @@
     "audit": "npm-audit",
     "build": "tsup",
     "lint": "eslint .",
-    "test-jest": "nyc --check-coverage --lines 100 --functions 100 --branches 92 npx jest ./lib/.*.test.ts",
-    "test-mocha": "nyc  --check-coverage --lines 96 --functions 100 --branches 85 mocha --require ts-node/register --check-leaks --recursive --timeout 5000 ./lib/**/*.test.ts",
-    "test": "npm run test-mocha && npm run test-jest"
+    "test:mocha": "mocha --require ts-node/register --check-leaks --recursive --timeout 5000 ./lib/**/*.test.ts",
+    "test:jest": "npx jest ./lib/.*.test.ts",
+    "test": "nyc npm run test:mocha && nyc --no-clean npm run test:jest && nyc check-coverage --lines 100 --functions 100 --branches 92 && nyc report"
   },
   "dependencies": {
     "sinon": "^22.0.0"
@@ -60,7 +60,18 @@
     "typescript-eslint": "^8.33.0"
   },
   "nyc": {
-    "all": true
+    "all": true,
+    "include": [
+      "lib/**/*.ts"
+    ],
+    "exclude": [
+      "lib/**/*.test.ts"
+    ],
+    "reporter": [
+      "text",
+      "lcov"
+    ],
+    "report-dir": "coverage"
   },
   "overrides": {
     "diff": "^9.0.0",
