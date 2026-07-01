@@ -7,7 +7,7 @@ import myPuppeteerScript from '../tests/myPuppeteerScript';
 chai.use(chaiAsPromised);
 const { expect } = chai;
 
-describe('mock-puppeteer-goto', () => {
+describe('mock-goto', () => {
   it('Should work properly with a key-value config object', async () => {
     const browser = await puppeteer.launch({
       args: [
