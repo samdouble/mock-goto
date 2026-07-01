@@ -4,7 +4,7 @@ on: [pull_request]
 
 permissions:
   contents: read
-  pull-requests: read
+  pull-requests: write
 
 jobs:
   checks:
@@ -33,6 +33,12 @@ jobs:
       - name: Tests
         run: |
           npm run test
+      - name: Upload coverage to Coveralls
+        uses: coverallsapp/github-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          file: coverage/lcov.info
+          format: lcov
       - name: Build
         run: |
           npm run build

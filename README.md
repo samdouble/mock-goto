@@ -2,7 +2,7 @@
 
 A module to mock a Playwright or Puppeteer page's goto method.
 
-[![CI](https://github.com/samdouble/mock-goto/actions/workflows/checks.yml/badge.svg)](https://github.com/samdouble/mock-goto/actions/workflows/checks.yml)
+[![CI](https://github.com/samdouble/mock-goto/actions/workflows/checks.yml/badge.svg)](https://github.com/samdouble/mock-goto/actions/workflows/checks.yml?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/samdouble/mock-goto/badge.svg?branch=master)](https://coveralls.io/github/samdouble/mock-goto?branch=master)
 [![npm version](https://img.shields.io/npm/v/mock-goto.svg?style=flat)](https://www.npmjs.org/package/mock-goto)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/mock-goto)
