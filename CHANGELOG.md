@@ -1,5 +1,12 @@
 #  Changelog
 
+## [1.0.3](https://github.com/samdouble/mock-goto/compare/v1.0.2...v1.0.3) (2026-07-01)
+
+
+### Bug Fixes
+
+* fix release process ([ea57804](https://github.com/samdouble/mock-goto/commit/ea57804dec8705654bd58983814ab7d1910a9551))
+
 ## [1.0.2](https://github.com/samdouble/mock-goto/compare/v1.0.1...v1.0.2) (2026-07-01)
 
 
