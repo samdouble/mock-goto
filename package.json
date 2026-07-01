@@ -11,6 +11,13 @@
   "main": "dist/index.js",
   "module": "./dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -30,6 +37,7 @@
   "scripts": {
     "audit": "npm-audit",
     "build": "tsup",
+    "prepack": "npm run build",
     "lint": "eslint .",
     "test:mocha": "mocha --require ts-node/register --check-leaks --recursive --timeout 5000 ./lib/**/*.test.ts",
     "test:jest": "npx jest ./lib/.*.test.ts",
