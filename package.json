@@ -1,6 +1,6 @@
 {
   "name": "mock-goto",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A module to mock a Playwright or Puppeteer page's goto method",
   "author": "samdouble",
   "license": "ISC",
