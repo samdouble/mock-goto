@@ -1,6 +1,6 @@
 {
   "name": "mock-goto",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "A module to mock a Playwright or Puppeteer page's goto method",
   "author": "samdouble",
   "license": "ISC",
@@ -51,8 +51,8 @@
     "mocha": "^11.5.0",
     "npm-audit-pipeline": "^0.6.1",
     "nyc": "^17.1.0",
+    "playwright": "^1.52.0",
     "puppeteer": "^24.9.0",
-    "puppeteer-core": "^24.9.0",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
     "tsup": "^8.5.0",
