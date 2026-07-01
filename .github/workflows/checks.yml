@@ -20,6 +20,10 @@ jobs:
       - name: Install
         run: |
           npm install
+      - name: Install browser dependencies
+        run: |
+          npx puppeteer browsers install chrome
+          npx playwright install chromium
       - name: Audit
         run: |
           npm run audit

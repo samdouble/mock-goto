@@ -5,18 +5,21 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/mock-goto)
 [![Coverage Status](https://coveralls.io/repos/samdouble/mock-goto/badge.svg?branch=master&service=github)](https://coveralls.io/github/samdouble/mock-goto?branch=master)
 
-A Node module to help you mock a Puppeteer page's goto method.
+A module to mock a Playwright or Puppeteer page's goto method.
 
 ### Use Case
-You have a Puppeteer script that you would like to test, but you do not want actual webpages to be loaded every time your tests are ran.
+
+You have a Playwright or Puppeteer script that you would like to test, but you do not want actual webpages to be loaded every time your tests are ran.
 This module offers you a concise way to test your script against local copies of the HTML files instead of real webpages.
 
 ### Installation
+
 ```
 npm install --save-dev mock-goto
 ```
 
 ### Usage
+
 In your test, before calling the script that you want to test, call ***mock-goto**.
 The function takes 2 arguments:
 - The Puppeteer Page object your script is going to use
@@ -61,5 +64,3 @@ describe('My Puppeteer script', () => {
   });
 });
 ```
-
-It works with Playwright too.
