@@ -1,12 +1,12 @@
 {
-  "name": "mock-puppeteer-goto",
+  "name": "mock-goto",
   "version": "0.3.0",
-  "description": "A Node module to help mock a Puppeteer page's goto method",
+  "description": "A module to mock a Playwright or Puppeteer page's goto method",
   "author": "samdouble",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samdouble/mock-puppeteer-goto.git"
+    "url": "git+https://github.com/samdouble/mock-goto.git"
   },
   "main": "dist/index.js",
   "module": "./dist/index.mjs",
@@ -15,14 +15,14 @@
     "dist"
   ],
   "bugs": {
-    "url": "https://github.com/samdouble/mock-puppeteer-goto/issues"
+    "url": "https://github.com/samdouble/mock-goto/issues"
   },
-  "homepage": "https://github.com/samdouble/mock-puppeteer-goto#readme",
+  "homepage": "https://github.com/samdouble/mock-goto#readme",
   "keywords": [
     "mocha",
     "jest",
-    "puppeteer",
     "playwright",
+    "puppeteer",
     "goto",
     "mock",
     "stub"
