@@ -2,8 +2,8 @@ import puppeteer from 'puppeteer';
 import { chromium } from 'playwright';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
-import mockPuppeteerGoto from '.';
-import myPuppeteerScript from '../tests/myPuppeteerScript';
+import mockGoto from '.';
+import myScript from '../tests/myScript';
 
 chai.use(chaiAsPromised);
 const { expect } = chai;
@@ -93,8 +93,8 @@ interface BrowserSession {
 function registerTests(launchSession: () => Promise<BrowserSession>) {
   it('Should work properly with a key-value config object', async () => {
     const { page, close } = await launchSession();
-    const mock = mockPuppeteerGoto(page, { paths: pathsObject });
-    const scriptResults = await myPuppeteerScript(page);
+    const mock = mockGoto(page, { paths: pathsObject });
+    const scriptResults = await myScript(page);
     await close();
     mock.restore();
     expect(scriptResults).to.be.an('array');
@@ -104,8 +104,8 @@ function registerTests(launchSession: () => Promise<BrowserSession>) {
 
   it('Should work properly with an array config object', async () => {
     const { page, close } = await launchSession();
-    const mock = mockPuppeteerGoto(page, { paths: pathsArray });
-    const scriptResults = await myPuppeteerScript(page);
+    const mock = mockGoto(page, { paths: pathsArray });
+    const scriptResults = await myScript(page);
     await close();
     mock.restore();
     expect(scriptResults).to.be.an('array');
@@ -115,19 +115,19 @@ function registerTests(launchSession: () => Promise<BrowserSession>) {
 
   it('Should throw if throwIfNotMapped is set to true and a path was not found', async () => {
     const { page, close } = await launchSession();
-    const mock = mockPuppeteerGoto(page, {
+    const mock = mockGoto(page, {
       paths: partialPathsArray,
       throwIfNotMapped: true,
     });
-    await expect(myPuppeteerScript(page)).to.be.rejectedWith(Error);
+    await expect(myScript(page)).to.be.rejectedWith(Error);
     await close();
     mock.restore();
   });
 
   it('Should visit the original URL if throwIfNotMapped is not set (or false) and a path was not found', async () => {
     const { page, close } = await launchSession();
-    const mock = mockPuppeteerGoto(page, { paths: partialPathsArray });
-    await myPuppeteerScript(page).catch(() => {});
+    const mock = mockGoto(page, { paths: partialPathsArray });
+    await myScript(page).catch(() => {});
     await close();
     expect(mock.getCall(2).args[0]).to.equal('https://somewebsite.com/silverado.html');
     await expect(mock.getCall(2).returnValue).to.be.rejectedWith();
