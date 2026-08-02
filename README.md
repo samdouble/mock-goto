@@ -45,7 +45,7 @@ After testing, restore the normal behavior of the `goto` function to avoid any w
 const mockGoto = require('mock-goto');
 
 describe('My script', () => {
-  it('Should return an array of trucks and for each, a list of their engines', async () => {
+  it('Should return an array of trucks and for each, a list of engines', async () => {
     // Create a Playwright Page and use mock-goto to remap the pages your script will visit
     const browser = await chromium.launch();
     const page = await browser.newPage();
@@ -78,7 +78,7 @@ describe('My script', () => {
 const mockGoto = require('mock-goto');
 
 describe('My script', () => {
-  it('Should return an array of trucks and for each, a list of their engines', async () => {
+  it('Should return an array of trucks and for each, a list of engines', async () => {
     // Create a Puppeteer Page and use mock-goto to remap the pages your script will visit
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
