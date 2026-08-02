@@ -1,12 +1,24 @@
+const esmPackages = [
+  'chai',
+  'chai-as-promised',
+  'check-error',
+  'puppeteer',
+  'puppeteer-core',
+  '@puppeteer',
+  'chromium-bidi',
+  'zod',
+  'modern-tar',
+].join('|');
+
 export default {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  // chai-as-promised v8+ and check-error are ESM-only
+  // Several test deps are ESM-only and need babel-jest under CJS Jest
   transformIgnorePatterns: [
-    'node_modules/(?!(chai-as-promised|check-error)/)',
+    `node_modules/(?!(${esmPackages})/)`,
   ],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
-    'node_modules/(chai-as-promised|check-error)/.+\\.js$': 'babel-jest',
+    [`node_modules/(${esmPackages})/.+\\.js$`]: 'babel-jest',
   },
 };

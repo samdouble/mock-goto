@@ -35,7 +35,7 @@ jobs:
           npx playwright install chromium
       - name: Audit
         run: |
-          npm run audit
+          npm audit --audit-level=moderate --omit=dev
       - name: Lint
         run: |
           npm run lint

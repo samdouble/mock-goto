@@ -1,12 +1,11 @@
 import puppeteer from 'puppeteer';
 import { chromium } from 'playwright';
-import chai from 'chai';
+import { expect, use } from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import mockGoto from '.';
 import myScript from '../tests/myScript';
 
-chai.use(chaiAsPromised);
-const { expect } = chai;
+use(chaiAsPromised);
 
 const expectedResults = [
   {
