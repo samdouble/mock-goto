@@ -12,7 +12,7 @@ export default async function (page: any) {
     ));
   const trucks: Truck[] = [];
   for (const truckUrl of trucksPageUrlList) {
-    await page.goto(truckUrl);
+    await page.goto(truckUrl!);
     const truck = await page
       .evaluate(() => {
         const name = [...document.querySelectorAll('h1')][0].innerText;
