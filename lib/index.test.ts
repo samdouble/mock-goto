@@ -1,8 +1,8 @@
-import puppeteer from 'puppeteer';
-import { chromium } from 'playwright';
 import { expect, use } from 'chai';
 import chaiAsPromised from 'chai-as-promised';
-import mockGoto from '.';
+import { chromium } from 'playwright';
+import puppeteer from 'puppeteer';
+import mockGoto from './index';
 import myScript from '../tests/myScript';
 
 use(chaiAsPromised);

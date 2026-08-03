@@ -15,11 +15,11 @@ export interface Config {
   throwIfNotMapped?: boolean;
 }
 
-export default function (page, config: Config) {
+export default function (page: any, config: Config) {
   const { paths, throwIfNotMapped } = config;
   const originalGoto = page.goto.bind(page);
   const stub = sinon.stub(page, 'goto');
-  stub.callsFake(async url => {
+  stub.callsFake(async (url: unknown) => {
     if (Array.isArray(paths)) {
       for (const configPage of paths) {
         if (url === configPage.url) {

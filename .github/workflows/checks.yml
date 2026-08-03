@@ -48,6 +48,10 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           file: coverage/lcov.info
           format: lcov
-      - name: Build
+      - name: Example tests
         run: |
           npm run build
+          npm --prefix examples install
+          npx --prefix examples puppeteer browsers install chrome
+          npx --prefix examples playwright install chromium
+          npm --prefix examples test

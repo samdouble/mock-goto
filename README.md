@@ -32,17 +32,28 @@ In your tests, call **mock-goto** before calling the script that you want to tes
 It is a function that takes 2 arguments:
 
 - The Playwright/Puppeteer Page object the script is using
-- A config object with the following properties:
+- A config object (described below)
 
-    - **paths**: Required. An object that tells mock-goto how it should mock the `goto` function. The keys are the links that are going to be visited by the script as found in the source code of the webpage. The values are the paths to the local HTML files with which the webpages will be stubbed.
-    - **throwIfNotMapped**: Optional. A boolean that tells mock-goto to throw an error if your script is trying to visit a page that is not specified in your **paths** object. Defaults to false.
+#### Config Object
+
+**paths**: Required. An object that tells mock-goto how it should mock the `goto` function. The keys are the links that are going to be visited by the script as found in the source code of the webpage. The values are the paths to the local HTML files with which the webpages will be stubbed.
+
+**throwIfNotMapped**: Optional. A boolean that tells mock-goto to throw an error if your script is trying to visit a page that is not specified in your **paths** object. Defaults to false.
 
 After testing, restore the normal behavior of the `goto` function to avoid any weird results in other tests.
 
+See the runnable examples in [`examples/`](./examples). Run them with:
+
+```
+npm run test:examples
+```
+
 #### Example with Playwright
 
-```javascript
-const mockGoto = require('mock-goto');
+```typescript
+import { chromium } from 'playwright';
+import mockGoto from 'mock-goto';
+import myScript from './index';
 
 describe('My script', () => {
   it('Should return an array of trucks and for each, a list of engines', async () => {
@@ -51,31 +62,31 @@ describe('My script', () => {
     const page = await browser.newPage();
     const mock = mockGoto(page, {
       paths: {
-        'https://somewebsite.com/': './tests/main.html',
-        'https://somewebsite.com/f150.html': './tests/f150.html',
-        'https://somewebsite.com/silverado.html': './tests/silverado.html',
-        'https://somewebsite.com/ram.html': './tests/ram.html',
+        'https://somewebsite.com/': './html/main.html',
+        'https://somewebsite.com/f150.html': './html/f150.html',
+        'https://somewebsite.com/silverado.html': './html/silverado.html',
+        'https://somewebsite.com/ram.html': './html/ram.html',
       },
     });
 
     // Call the script that you want to test.
     const results = await myScript(page);
 
-    // Close the Browser since you don't need it anymore
-    // and restore the `goto` function
+    // Close the browser and restore the `goto` function
     await browser.close();
     mock.restore();
 
-    // ...
-    // Assertions on results
+    // Assert
     // ...
   });
 });
 ```
 #### Example with Puppeteer
 
-```javascript
-const mockGoto = require('mock-goto');
+```typescript
+import puppeteer from 'puppeteer';
+import mockGoto from 'mock-goto';
+import myScript from './index';
 
 describe('My script', () => {
   it('Should return an array of trucks and for each, a list of engines', async () => {
@@ -84,23 +95,21 @@ describe('My script', () => {
     const page = await browser.newPage();
     const mock = mockGoto(page, {
       paths: {
-        'https://somewebsite.com/': './tests/main.html',
-        'https://somewebsite.com/f150.html': './tests/f150.html',
-        'https://somewebsite.com/silverado.html': './tests/silverado.html',
-        'https://somewebsite.com/ram.html': './tests/ram.html',
+        'https://somewebsite.com/': './html/main.html',
+        'https://somewebsite.com/f150.html': './html/f150.html',
+        'https://somewebsite.com/silverado.html': './html/silverado.html',
+        'https://somewebsite.com/ram.html': './html/ram.html',
       },
     });
 
     // Call the script that you want to test.
     const results = await myScript(page);
 
-    // Close the Browser since you don't need it anymore
-    // and restore the `goto` function
+    // Close the browser and restore the `goto` function
     await browser.close();
     mock.restore();
 
-    // ...
-    // Assertions on results
+    // Assert
     // ...
   });
 });

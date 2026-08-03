@@ -35,21 +35,28 @@
     "stub"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && tsc -p tsconfig.build.json --emitDeclarationOnly",
     "prepack": "npm run build",
     "lint": "oxlint",
-    "test:mocha": "mocha --require ts-node/register --check-leaks --recursive --timeout 5000 ./lib/**/*.test.ts",
+    "test:examples": "npm run build && npm --prefix examples install && npm --prefix examples test",
     "test:jest": "npx jest ./lib/.*.test.ts",
+    "test:mocha": "mocha --require ts-node/register --check-leaks --recursive --timeout 5000 ./lib/**/*.test.ts",
     "test": "nyc npm run test:mocha && nyc --no-clean npm run test:jest && nyc check-coverage --lines 100 --functions 100 --branches 92 && nyc report"
   },
   "dependencies": {
     "sinon": "^22.0.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.29.7",
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "@types/chai": "^5.2.3",
+    "@types/chai-as-promised": "^8.0.2",
     "@types/jest": "^30.0.0",
     "@types/mocha": "^10.0.3",
     "@types/node": "^26.1.0",
+    "@types/sinon": "^22.0.0",
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "babel-jest": "^30.4.1",
     "chai": "^6.2.2",
     "chai-as-promised": "^8.0.2",
     "jest": "^30.4.2",
@@ -58,10 +65,10 @@
     "oxlint": "^1.76.0",
     "playwright": "^1.52.0",
     "puppeteer": "^25.4.0",
-    "ts-jest": "^29.1.1",
+    "ts-jest": "^29.4.12",
     "ts-node": "^10.9.1",
     "tsup": "^8.5.0",
-    "typescript": "^5.2.2"
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   },
   "nyc": {
     "all": true,
@@ -79,6 +86,9 @@
   },
   "overrides": {
     "diff": "^9.0.0",
-    "serialize-javascript": "^7.0.7"
+    "serialize-javascript": "^7.0.7",
+    "ts-jest": {
+      "@babel/core": "$@babel/core"
+    }
   }
 }
