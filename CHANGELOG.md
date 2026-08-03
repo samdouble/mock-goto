@@ -1,5 +1,12 @@
 #  Changelog
 
+## [1.0.4](https://github.com/samdouble/mock-goto/compare/v1.0.3...v1.0.4) (2026-08-03)
+
+
+### Bug Fixes
+
+* improve documentation with examples ([1386385](https://github.com/samdouble/mock-goto/commit/1386385bd9987b6af9cce251a1f344ec609a95d5))
+
 ## [1.0.3](https://github.com/samdouble/mock-goto/compare/v1.0.2...v1.0.3) (2026-07-01)
 
 
