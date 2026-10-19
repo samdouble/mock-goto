@@ -67,7 +67,7 @@
     "puppeteer": "^25.4.0",
     "ts-jest": "^29.4.12",
     "ts-node": "^10.9.1",
-    "tsup": "^8.5.0",
+    "tsup": "^9.0.0",
     "typescript": "npm:@typescript/typescript6@^6.0.2"
   },
   "nyc": {
